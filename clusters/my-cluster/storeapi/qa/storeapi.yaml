@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storeapi
+  namespace: storeapi-qa
+spec:
+  selector:
+    matchLabels:
+      app: storeapi
+  template:
+    metadata:
+      labels:
+        app: storeapi
+    spec:
+      containers:
+        - name: storeapi
+          image: ghcr.io/betuelsa/avature-storeapi:qa-1-a92a265-1725232331
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: MONGO_URI
+              value: "mongodb://mongodb:27017"
+            - name: MONGO_DB
+              value: "restdb"
+          ports:
+            - name: http
+              containerPort: 5000
+              protocol: TCP
