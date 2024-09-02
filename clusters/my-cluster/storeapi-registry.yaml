@@ -1,0 +1,11 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: storeapi
+  namespace: flux-system
+spec:
+  image: ghcr.io/betuelsa/avature-storeapi
+  interval: 5m0s
+  secretRef:
+    name: ghcr

@@ -1,0 +1,15 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: storeapi-qa
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: storeapi
+  filterTags:
+    pattern: '^qa-[0-9]+-[a-fA-F0-9]+-(?P<ts>.*)'
+    extract: '$ts'
+  policy:
+    numerical:
+      order: asc
