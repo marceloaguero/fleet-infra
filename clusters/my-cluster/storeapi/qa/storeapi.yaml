@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: storeapi
-          image: ghcr.io/betuelsa/avature-storeapi:qa-1-a92a265-1725232331 # {"$imagepolicy": "flux-system:storeapi-qa"}
+          image: ghcr.io/betuelsa/avature-storeapi:qa-19-d33f9e0-1725299892 # {"$imagepolicy": "flux-system:storeapi-qa"}
           imagePullPolicy: IfNotPresent
           env:
             - name: MONGO_URI
